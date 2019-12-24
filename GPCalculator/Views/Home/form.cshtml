@@ -1,0 +1,99 @@
+﻿@model HomeResultSheetViewModel;
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <meta name="author" content="Izy" />
+    <title>Personal Details</title>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <h2 class="display-5 text-center">Personal Details</h2>
+
+         <hr />
+        <div class="container justify-content-center">
+
+            <div class="col-md-12">
+                <form asp-controller="Home" asp-action="Form" method="post">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5">
+                            <div class="form-group">
+                                <label asp-for="Result.Firstname">Firstname</label><br />
+                                <input asp-for="Result.Firstname" class="form-control" placeholder="Firstname" autofocus />
+                                <span asp-validation-for="Result.Firstname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5">
+                            <div class="form-group">
+                                <label asp-for="Result.Lastname">Lastname</label>
+                                <input asp-for="Result.Lastname" class="form-control" placeholder="Lastname">
+                                <span asp-validation-for="Result.Lastname" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5">
+                            <div class="form-group">
+                                <label asp-for="Result.Regno">Reg No</label><br />
+                                <input asp-for="Result.Regno" class="form-control" placeholder="2017/257654" />
+                                <span asp-validation-for="Result.Regno" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5">
+                            <div class="form-group">
+                                <label asp-for="Result.Department">Department</label>
+                                <input asp-for="Result.Department" class="form-control" placeholder="Computer Science">
+                                <span asp-validation-for="Result.Department" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <div class="form-group">
+                                <label asp-for="Result.Level">Level</label>
+                                <select asp-for="Result.Level" class="form-control">
+                                    <option selected="selected" value="100">100</option>
+                                    <option value="200">200</option>
+                                    <option value="300">300</option>
+                                    <option value="400">400</option>
+                                    <option value="500">500</option>
+                                    <option value="600">600</option>
+                                    <option value="700">700</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5">
+                            <div class="form-group">
+                                <label asp-for="Result.Session">Session</label><br />
+                                <input asp-for="Result.Session" class="form-control" placeholder="2019/2020" />
+                                <span asp-validation-for="Result.Session" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5">
+                            <div class="form-group">
+                                <label asp-for="Result.Semester">Semester</label>
+                                <select asp-for="Result.Semester" class="form-control">
+                                    <option selected="selected" value="First">First</option>
+                                    <option value="Second">Second</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    
+
+                    <br /><br />
+                    <div class="container text-center">
+                        <button class="btn btn-dark m-1" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    
+</body>

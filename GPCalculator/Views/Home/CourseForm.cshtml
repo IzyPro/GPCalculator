@@ -1,0 +1,69 @@
+﻿@model CourseFormViewModel;
+
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <meta name="author" content="Izy" />
+    <title>Course Details</title>
+</head>
+<div class="container">
+    <h2 class="display-5 text-center">Course Details</h2>
+    <br />
+    <br />
+    <input type="hidden" asp-for="ResultId" />
+    <input type="button" class="btn btn-dark pop float-right m-3" value="Add New Course" onclick="AddFromModal()" />
+    <table id="tbl" class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Unit</th>
+            <th>Grade</th>
+
+        </tr>
+        @foreach (var course in Model.Courses)
+        {
+            <tr>
+                <td>@course.Name</td>
+                <td>@course.Unit</td>
+                <td>@course.Grade</td>
+                @*<td>
+                        <input type="button" value="Delete" onclick="DeleteRow(this)" class="btn btn-dark btn-sm" />
+                    </td>*@
+            </tr>
+
+        }
+
+    </table>
+
+    <div class="text-center">
+        <a asp-controller="Home" asp-action="ResultSheet" asp-route-id="@Model.ResultId">
+            <button type="button" class="btn btn-dark m-5">Submit</button>
+        </a>
+    </div>
+</div>
+
+
+<div class="modal fade" id="popup" aria-labelledby="courseModal" aria-hidden="true" role="dialog" data-url='@Url.Action("AddFromModal","Home", new { resultId = Model.ResultId })'</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    function DeleteRow(r) {
+        var p = r.parentNode.parentNode;
+        p.parentNode.removeChild(p);
+    }
+    //function AddFromModal(Sn) {
+    //    $.get("/Home/AddFromModal", { Sn: Sn }, function (res) {
+    //        $("#popupContent").html(res);
+    //        $("#popup").modal('show');
+    //    })
+    //}
+    $(document).ready(function () {
+        $('.pop').click(function () {
+            var url = $('#popup').data('url');
+            $.get(url, function (data) {
+                $("#popup").html(data);
+                $("#popup").modal('show');
+            });
+        })
+    })
+</script>

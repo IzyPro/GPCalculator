@@ -1,0 +1,69 @@
+﻿@model HomeResultSheetViewModel;
+@{
+    ViewData["Title"] = "Result Sheet";
+}
+
+<h1 class="display-4 text-center">Result Sheet</h1>
+<hr /><br />
+      <div class="container">
+          <div class="col-md-12">
+              <div class="row">
+                  <div class="col-md-4">
+                      <p><label>Lastname:</label> @Model.Result.Lastname</p>
+                  </div>
+                  <div class="col-md-4">
+                      <p><label>Firstname:</label> @Model.Result.Firstname</p>
+                  </div>
+
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <p><label>Reg No:</label> @Model.Result.Regno</p>
+                  </div>
+                  <div class="col-md-4">
+                      <p><label>Department:</label> @Model.Result.Department</p>
+                  </div>
+                  <div class="col-md-2">
+                      <p><label>Level:</label> @Model.Result.Level</p>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <p><label>Session:</label> @Model.Result.Session</p>
+                  </div>
+                  <div class="col-md-4">
+                      <p><label>Semester:</label> @Model.Result.Semester</p>
+                  </div>
+              </div>
+          </div>
+
+
+         
+          <br /><br />
+          <table class="table table-bordered table-condensed">
+              <tr>
+                  <th>Name</th>
+                  <th>Unit</th>
+                  <th>Grade</th>
+              </tr>
+              @foreach (var course in Model.Courses)
+              {
+                  <tr>
+                      <td>@course.Name</td>
+                      <td>@course.Unit</td>
+                      <td>@course.Grade</td>
+                  </tr>
+
+              }
+          </table>
+          <br /><br />
+          <table class="table table-bordered">
+              <tr>
+                  <th>Number of courses = @Model.NoOfCourses</th>
+                  <th>Total Unit Load = @Model.SumOfUnits</th>
+                  <th>GPA: @Model.GP</th>
+              </tr>
+          </table>
+         
+
+      </div>

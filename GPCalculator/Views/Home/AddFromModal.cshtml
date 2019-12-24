@@ -1,0 +1,49 @@
+﻿@model Course;
+
+<div class=" modal-dialog" role="document">
+    <div class="modal-content" id="popupContent">
+        <form name="addCourse" asp-antiforgery="true">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h3 class="display-6 text-center">Enter Course Details</h3>
+                </div>
+                <button data-dismiss="modal" class="close" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                @*<input asp-for="Sn" type="hidden" />*@
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Name">Course Title</label>
+                            <input asp-for="Name" class="form-control" required />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Unit">Unit Load</label>
+                            <input asp-for="Unit" min="1" max="28" class="form-control" required />
+                            <span asp-validation-for="Unit" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Grade">Grade</label>
+                            <select asp-for="Grade" class="form-control" required>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                            </select>
+                            <span asp-validation-for="Grade" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <input type="hidden" asp-for="ResultId" />
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark btn-sm m-4">Add</button>
+            </div>    
+           
+        </form>
+    </div>
+</div>
